@@ -1,0 +1,9 @@
+body {
+    margin:25px;
+}
+
+.book {
+    margin-top:20px;
+    padding:10px;
+    border:1px solid silver;
+}

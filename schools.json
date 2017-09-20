@@ -1,0 +1,35 @@
+{
+  "East Boston Central Catholic": {
+	"id" : 0,
+	"type" : "Catholic",
+	"gradeFloor" : 1,
+	"gradeCeiling" : 8,
+	"adress": "69 London Street",
+	"neighborhood" : "East Boston",
+	"latitude" : 42.3716,
+	"longtitude" : -71.0404,
+	"website" : "www.ebccs.org"
+  },
+  "Boston College High  School": {
+	"id" : 1,
+	"type" : "Private",
+	"gradeFloor" : 7,
+	"gradeCeiling" : 12,
+	"adress": "150 Morrissey Blvd.",
+	"neighborhood" : "Dorchester",
+	"latitude" : 42.3161,
+	"longtitude" : -71.0449,
+	"website" : "www.bchigh.edu"
+  },
+  "Brighton High School": {
+	"id" : 2,
+	"type" : "Public",
+	"gradeFloor" : 9,
+	"gradeCeiling" : 12,
+	"adress": "25 Warren Street",
+	"neighborhood" : "Allston/Brighton",
+	"latitude" : 42.3492,
+	"longtitude" : -71.1455,
+	"website" : "http://bostonpublicschools.org/brightonhs"
+  }
+}
