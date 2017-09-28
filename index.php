@@ -24,9 +24,9 @@
         <fieldset class='checkboxes'>
             <label for='schoolTypes[]'>Select school type:</label>
             <br>
-            <label><input type='checkbox' name='schoolTypes[]' value='Catholic' <?php if (strstr($schoolTypeResults, 'Catholic')) echo 'CHECKED'?>> Catholic</label>
-            <label><input type='checkbox' name='schoolTypes[]' value='Public' <?php if (strstr($schoolTypeResults, 'Public')) echo 'CHECKED'?>> Public</label>
-            <label><input type='checkbox' name='schoolTypes[]' value='Private' <?php if (strstr($schoolTypeResults, 'Private')) echo 'CHECKED'?>> Private</label>
+            <label><input type='checkbox' name='schoolTypes[]' id=schoolTypes[] value='Catholic' <?php if (strstr($schoolTypeResults, 'Catholic')) echo 'CHECKED'?>> Catholic</label>
+            <label><input type='checkbox' name='schoolTypes[]' id=schoolTypes[] value='Public' <?php if (strstr($schoolTypeResults, 'Public')) echo 'CHECKED'?>> Public</label>
+            <label><input type='checkbox' name='schoolTypes[]' id=schoolTypes[] value='Private' <?php if (strstr($schoolTypeResults, 'Private')) echo 'CHECKED'?>> Private</label>
         </fieldset>
 
         <label for='neighborhood'>Select neighborhood</label>
