@@ -18,10 +18,7 @@ if ($form->isSubmitted()) {
     $neighborhood = $form->get('neighborhood','All');
     # Validate
     $errors = $form->validate([
-        'grade' => 'required',
-        'grade' => 'numeric',
-        'grade' => 'min:0',
-        'grade' => 'max:13'
+        'grade' => 'required|numeric|min:0|max:13'
     ]);
 
     # If there were no validation errors, proceed...

@@ -59,11 +59,8 @@ class Form
             # Remove trailing comma
             $value = rtrim($value, ', ');
         } else {
-
-
-           $value = $default;
+          $value = $default;
         }
-
 
         return $value;
     }

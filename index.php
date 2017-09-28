@@ -76,8 +76,5 @@
 
     <?php endif ?>
 
-
-
-
 </body>
 </html>
