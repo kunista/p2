@@ -1,5 +1,4 @@
 <?php require('getAllSchools.php'); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,8 +17,8 @@
     <form method='GET'>
 
         <div class='form-group'>
-            <label for='grade'>Select Grade:</label>
-            <input type='number' name='grade' min="1" max="12" id='grade'>
+            <label for='grade'>Select Grade (required):</label>
+            <input type='number' name='grade' min="1" max="12" id='grade' value='<?=$form->prefill('grade','')?>'>
         </div>
 
         <fieldset class='checkboxes'>
@@ -32,7 +31,7 @@
 
         <label for='neighborhood'>Select neighborhood</label>
         <select name='neighborhood' id='neighborhood'>
-            <option value='choose'>Choose one...</option>
+            <option value='All'>All</option>
             <option value='East Boston' <?php if ($neighborhood == "East Boston") echo 'SELECTED'?>>East Boston</option>
             <option value='Dorchester' <?php if ($neighborhood == "Dorchester") echo 'SELECTED'?>>Dorchester</option>
             <option value='Allston/Brighton' <?php if ($neighborhood == "Allston/Brighton") echo 'SELECTED'?>>Allston/Brighton</option>
@@ -44,28 +43,41 @@
 
     </form>
 
-    <?php foreach ($schools as $name => $school) : ?>
-        <div class='school'>
-            <h2><?=$name?></h2>
+    <?php if (!empty($errors)) : ?>
+        <div class='alert alert-danger'>
             <ul>
-                <li>Type: <?=$school['type']?></li>
-                <li>Grade: <?=$school['gradeFloor']." - ".$school['gradeCeiling']?></li>
-                <li>Neighborhood: <?=$school['neighborhood']?></li>
+                <?php foreach ($errors as $error) : ?>
+                    <li><?=$error?></li>
+                <?php endforeach; ?>
             </ul>
         </div>
-    <?php endforeach; ?>
+    <?php endif ?>
 
-    <?php if ($_GET) : ?>
-        <div class="alert <?=$gradeAlertType?>" role="alert">
-            <?=$gradeResults?>
-        </div>
-        <div class="alert <?=$schoolTypeAlertType?>" role="alert">
-            <?=$schoolTypeResults?>
-        </div>
-        <div class="alert <?=$neighborhoodAlertType?>" role="alert">
-            <?=$neighborhoodResults?>
-        </div>
-    <?php endif; ?>
+    <?php if ($form->isSubmitted() and empty($errors)) : ?>
+
+        <div class='alert alert-info'>You searched for schools with grade: <strong><?=sanitize($grade)?></strong></div>
+        <div class='alert alert-info'>You searched for schools with type: <strong><?=sanitize($schoolTypeResults)?></strong></div>
+        <div class='alert alert-info'>You searched for schools with neighborhood: <strong><?=sanitize($neighborhood)?></strong></div>
+
+        <?php if (!$haveResults) : ?>
+            <div class='alert alert-warning'>Your search criteria did not match any schools.</div
+        <?php endif; ?>
+
+        <?php foreach ($schools as $name => $school) : ?>
+            <div class='school'>
+                <h2><?=$name?></h2>
+                <ul>
+                    <li>Type: <?=$school['type']?></li>
+                    <li>Grade: <?=$school['gradeFloor']." - ".$school['gradeCeiling']?></li>
+                    <li>Neighborhood: <?=$school['neighborhood']?></li>
+                </ul>
+            </div>
+        <?php endforeach;  ?>
+
+    <?php endif ?>
+
+
+
 
 </body>
 </html>
